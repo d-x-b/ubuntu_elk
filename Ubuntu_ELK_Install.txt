@@ -25,111 +25,45 @@ sudo apt install logstash -y
 sudo apt install filebeat -y 
 sudo apt install metricbeat -y
 
-sudo nano /etc/elasticsearch/elasticsearch.yml
+cd /etc/elasticsearch
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/elasticsearch.yml?token=ADZZNSQCRP2MC5UD4PPWPX3AVPIPW
+mv ./elasticsearch.yml?token=ADZZNSQCRP2MC5UD4PPWPX3AVPIPW ./elasticsearch.yml
+
+cd /etc/kibana
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/kibana.yml?token=ADZZNSR7MHRPX2MFMQDFLYDAVPIEW
+mv ./kibana.yml?token=ADZZNSR7MHRPX2MFMQDFLYDAVPIEW ./kibana.yml
+
+cd /etc/logstash
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/logstash.yml?token=ADZZNSR6EBXFB265V6F3FP3AVPH3Y
+mv ./logstash.yml?token=ADZZNSR6EBXFB265V6F3FP3AVPH3Y ./logstash.yml
+
+cd /etc/filebeat
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/filebeat.yml?token=ADZZNST6DOENDNJRLVEDVITAVPHOY
+mv ./filebeat.yml?token=ADZZNST6DOENDNJRLVEDVITAVPHOY ./filebeat.yml
+
+cd /etc/metricbeat
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/metricbeat.yml?token=ADZZNST5WF6XJDWIJFF2SU3AVPGJQ
+mv ./metricbeat.yml\?token\=ADZZNST5WF6XJDWIJFF2SU3AVPGJQ ./metricbeat.yml
 
 sudo systemctl start elasticsearch.service
 sudo systemctl enable elasticsearch.service
+sudo ufw allow 9200
+curl -X GET "192.168.69.89:9200"
 
-curl -X GET "localhost:9200"
-
-sudo nano /etc/kibana/kibana.yml
 sudo systemctl start kibana
 sudo systemctl enable kibana
 sudo ufw allow 5601
 
-sudo nano /etc/logstash/logstash.yml
 sudo systemctl start logstash
 sudo systemctl enable logstash
 sudo systemctl status logstash
 
-
-
-sudo service filebeat start
-sudo service kibana  restart
-
-sudo nano /etc/filebeat/filebeat.yml
-sudo filebeat modules enable elasticsearch
-sudo filebeat modules enable kibana
-sudo filebeat modules enable logstash
-sudo filebeat modules enable system
-
+sudo filebeat modules enable kibana elasticsearch logstash system
 sudo filebeat setup
-
 sudo systemctl start filebeat
 sudo systemctl enable filebeat
 
-
-sudo nano /etc/metricbeat/metricbeat.yml
-sudo metricbeat modules enable elasticsearch
-sudo metricbeat modules enable kibana
-sudo metricbeat modules enable logstash
-sudo metricbeat modules enable system
-
+sudo metricbeat modules enable kibana elasticsearch logstash system
 sudo metricbeat setup
-
 sudo systemctl start metricbeat
 sudo systemctl enable metricbeat
-
-sudo nano /etc/filebeat/modules.d/kibana.yml
-
-
-
-
-
-sudo filebeat modules enable elasticsearch
-ssudo nano /etc/filebeat/modules.d/elasticsearch.yml
-sudo nano /etc/filebeat/modules.d/elasticsearch.yml
-sudo filebeat setup
-
-sudo service filebeat start
-sudo service elasticsearch start
-sudo service elasticsearch restart
-sudo service filebeat restart
-sudo apt install metricbeat -y
-sudo nano /etc/metricbeat/metricbeat.yml
-sudo metricbeat modules enable elasticsearch
-sudo metricbeat setup
-sudo service metricbeat start
-sudo service elasticsearch restart
-sudo filebeat modules enable kibana
-sudo filebeat seutp
-sudo filebeat setup
-sudo nano /etc/filebeat/modules.d/kibana.yml
-sudo service kibana restart
-sudo service elasticsearch restart
-sudo service filebeat restart
-sudo metricbeat modules enable kibana
-sudo metrcibeat setup
-sudo metricbeat setup
-sudo service metricbeat restart
-sudo service metricbeat stop
-sudo metricbeat setup
-sudo service metricbeat start
-sudo service filebeat stop
-sudo filebeat setup
-sudo service filebeat start
-sudo service filebeat enable
-sudo service filebeat stop
-sudo filebeat modules enable logstash
-sudo filebeat setup
-sudo service filebeat start
-sudo service elasticsearch restart
-sudo metricbeat modules enable logstash
-sudo service metricbeat stop
-sudo metricbeat setup
-sudo service metricbeat start
-sudo service elasticsearch restart
-sudo service filebeat stop
-sudo filbeat modules enable system
-sudo filebeat modules enable system
-sudo filebeat setup
-sudo service filebeat start
-
-sudo service elasticsearch restart
-sudo service metricbeat stop
-sudo metricbeat modules enable system
-sudo filebeat modules enable system
-
-sudo service metricbeat start
-systemctl enable metricbeat
-
