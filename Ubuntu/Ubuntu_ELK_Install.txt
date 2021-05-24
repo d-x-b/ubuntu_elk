@@ -22,28 +22,23 @@ sudo apt install filebeat -y
 sudo apt install metricbeat -y
 
 pushd /etc/elasticsearch
-curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/elasticsearch.yml?token=ADZZNSQCRP2MC5UD4PPWPX3AVPIPW
-mv ./elasticsearch.yml?token=ADZZNSQCRP2MC5UD4PPWPX3AVPIPW ./elasticsearch.yml
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/elasticsearch.yml
 popd
 
 pushd /etc/kibana
-curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/kibana.yml?token=ADZZNSR7MHRPX2MFMQDFLYDAVPIEW
-mv ./kibana.yml?token=ADZZNSR7MHRPX2MFMQDFLYDAVPIEW ./kibana.yml
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/kibana.yml
 popd
 
 pushd /etc/logstash
-curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/logstash.yml?token=ADZZNSR6EBXFB265V6F3FP3AVPH3Y
-mv ./logstash.yml?token=ADZZNSR6EBXFB265V6F3FP3AVPH3Y ./logstash.yml
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/logstash.yml
 popd
 
 pushd /etc/filebeat
-curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/filebeat.yml?token=ADZZNST6DOENDNJRLVEDVITAVPHOY
-mv ./filebeat.yml?token=ADZZNST6DOENDNJRLVEDVITAVPHOY ./filebeat.yml
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/filebeat.yml
 popd
 
 pushd /etc/metricbeat
-curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/metricbeat.yml?token=ADZZNST5WF6XJDWIJFF2SU3AVPGJQ
-mv ./metricbeat.yml\?token\=ADZZNST5WF6XJDWIJFF2SU3AVPGJQ ./metricbeat.yml
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/metricbeat.yml
 popd
 
 sudo systemctl start elasticsearch.service
