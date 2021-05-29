@@ -58,7 +58,7 @@ sudo filebeat setup
 sudo systemctl start filebeat
 sudo systemctl enable filebeat
 
-sudo metricbeat modules enable kibana elasticsearch logstash system auditd
+sudo metricbeat modules enable kibana elasticsearch logstash system
 sudo metricbeat setup
 sudo systemctl start metricbeat
 sudo systemctl enable metricbeat
