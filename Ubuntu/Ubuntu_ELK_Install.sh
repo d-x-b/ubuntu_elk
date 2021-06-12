@@ -25,23 +25,23 @@ sudo apt install filebeat -y
 sudo apt install metricbeat -y
 
 pushd /etc/elasticsearch
-wget https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/elasticsearch.yml
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/elasticsearch.yml
 popd
 
 pushd /etc/kibana
-wget https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/kibana.yml
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/kibana.yml
 popd
 
 pushd /etc/logstash
-wget https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/logstash.yml
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/logstash.yml
 popd
 
 pushd /etc/filebeat
-wget https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/filebeat.yml
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/filebeat.yml
 popd
 
 pushd /etc/metricbeat
-wget https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/metricbeat.yml
+curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/metricbeat.yml
 popd
 
 sudo systemctl start elasticsearch.service
