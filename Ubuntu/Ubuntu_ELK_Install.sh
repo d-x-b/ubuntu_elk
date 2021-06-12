@@ -11,7 +11,7 @@ sudo apt install openjdk-8-jdk -y
 sudo apt install gnupg2 -y
 sudo apt install nginx -y
 sudo apt install apt-transport-https -y
-sudo apt install curl -y
+#sudo apt install curl -y
 
 curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
@@ -25,23 +25,23 @@ sudo apt install filebeat -y
 sudo apt install metricbeat -y
 
 pushd /etc/elasticsearch
-curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/elasticsearch.yml
+wget https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/elasticsearch.yml
 popd
 
 pushd /etc/kibana
-curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/kibana.yml
+wget https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/kibana.yml
 popd
 
 pushd /etc/logstash
-curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/logstash.yml
+wget https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/logstash.yml
 popd
 
 pushd /etc/filebeat
-curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/filebeat.yml
+wget https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/filebeat.yml
 popd
 
 pushd /etc/metricbeat
-curl -O https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/metricbeat.yml
+wget https://raw.githubusercontent.com/d-x-b/ubuntu_elk/main/Ubuntu/metricbeat.yml
 popd
 
 sudo systemctl start elasticsearch.service
